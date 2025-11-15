@@ -18,4 +18,6 @@ fetch("https://zeta.nethacker.cloud/api?prompt=hello")
 curl "https://zeta.nethacker.cloud/api?prompt=hello"
 ```
 
+[Source Code](https://zeta.nethacker.cloud/source)
+
 &copy; NeuralNexusLab Zeta Team
