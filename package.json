@@ -1,0 +1,14 @@
+{
+  "name": "ZetaAI",
+  "version": "1.0.0",
+  "description": "Zeta AI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "NeuralNexusLab NetHacker <zetaai@nethacker.cloud> (https://nethacker.cloud)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
