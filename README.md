@@ -1,2 +1,2 @@
 # ZetaAI
-ZetaAI is a AI model trained by NeuralNexusLab.
+ZetaAI is an AI model trained by NeuralNexusLab.
