@@ -11,7 +11,7 @@ app.use((req, res, next) => {
   } 
 });
 
-function zetaai(question) {
+function zeta(question) {
   
   let answers = [
     `Good question! ${question} is worth discussing.`,
@@ -58,7 +58,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/source", (req, res) => {
-  res.type("text/plain").sendFile(path.join(__dirname, "source.js"));
+  res.redirect("https://huggingface.co/NeuralNexusLab-Nh/ZetaAI");
 });
 
 app.get("/api", (req, res) => {
@@ -66,7 +66,7 @@ app.get("/api", (req, res) => {
   if (prompt == "") {
     res.status(403).send("PROMPT REQUIRE");
   } else {
-    const ans = zetaai(prompt);
+    const ans = zeta(prompt);
     res.json(
       {
         return: ans,
