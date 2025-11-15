@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/source", (req, res) => {
-  res.type("text/plain").sendFile(path.join(__dirname, "source.js");
+  res.type("text/plain").sendFile(path.join(__dirname, "source.js"));
 });
 
 app.get("/api", (req, res) => {
