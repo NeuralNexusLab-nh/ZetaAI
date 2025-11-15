@@ -5,7 +5,8 @@ const path = require("path");
 app.use((req, res, next) => {
   if (req.headers["user-agent"]) {
     res.set("X-Frame-Options", "DENY");
-    res.set("X-REQUEST-ID", Math.floor(Math.random() * 100));
+    res.set("X-REQUEST-ID", Math.floor(Math.random() * 10000000));
+    res.set("Access-Control-Allow-Origin", "*");
     next();
   } 
 });
