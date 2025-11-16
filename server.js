@@ -24,7 +24,9 @@ app.get("/", (req, res) => {
   </head>
   <body>
   <h1>Zeta AI</h1><br>
-  <a href="https://github.com/NeuralNexusLab-nh/ZetaAI/">Github Documents</a>
+  <a href="https://github.com/NeuralNexusLab-nh/ZetaAI/">Github Documents</a><br>
+  <a href="https://huggingface.co/NeuralNexusLab-Nh/ZetaAI">Source Code</a><br>
+  <a href="https://nethacker.cloud/models/zeta">Playground</a>
   </body>
   </html>
   `);
