@@ -32,19 +32,12 @@ function zeta (q) {
     }
   }
   
-  var math = q.match(/[0-9\^\+\-\*\/\(\)\s]+/);
-  math = math[0].replace(/\^/g, "**");
-  if (math) {
-    catc += math + "'s answer is " + eval(math);
-    token += eval(math);
-  }
-  
   res += q + " About " + keyword + "...\n";
   res += catc + "\n";
   res += `${keyword}, a good discuss for us.`;
   token += 5;
 
-  return {token: token, return: res};
+  return {token: token, model: "zeta-x1-lite", return: res};
 }
 
 module.exports = zeta;
