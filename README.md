@@ -18,7 +18,7 @@ fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F")
 https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F
 ```
 
-4. CLI
+3. CLI
 ```
 curl "https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F"
 ```
