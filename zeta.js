@@ -46,3 +46,5 @@ function zeta (q) {
 
   return {token: token, return: res};
 }
+
+module.exports = zeta;
