@@ -11,4 +11,4 @@ function processHTML(html) {
     return html.replace(/\n{2,}/g, '\n').trim();
 }
 
-moudle.exports = processHTML;
+module.exports = processHTML;
