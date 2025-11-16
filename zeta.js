@@ -52,7 +52,7 @@ function zeta (q) {
   
   keyword = keyword.replace(/[^a-zA-Z\s]/g, '');
   var catc = "";
-  var isntAdd == true
+  var isntAdd = true
 
   if (q.toLowerCase().includes("web") || q.toLowerCase().includes("net")) {
     var plhd = q.toLowerCase().split(" ");
