@@ -10,3 +10,5 @@ function processHTML(html) {
     html = html.replace(/<[^>]*>/g, '');
     return html.replace(/\n{2,}/g, '\n').trim();
 }
+
+moudle.exports = { processHTML };
