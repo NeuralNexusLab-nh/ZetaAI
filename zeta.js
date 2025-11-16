@@ -69,7 +69,7 @@ function zeta (q) {
   }
 
   for (let i = 0; i < db.length; i++) {
-    if (db[i].toLowerCase().includes(keyword.toLowerCase()) && isntAdd == true) {
+    if (db[i].toLowerCase().includes(keyword.toLowerCase()) && isntAdd === true) {
       catc += db[i];
       token += db[i].length;
       isntAdd = false;
