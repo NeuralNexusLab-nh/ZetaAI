@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const processHTML = require("./search.js");
 const zeta = require("./zeta.js");
 
 app.use((req, res, next) => {
