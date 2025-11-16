@@ -42,8 +42,9 @@ app.get("/api", (req, res) => {
     const ans = zeta(prompt);
     res.json(
       {
-        return: ans,
-        model: "zeta-ai x1",
+        tokens: ans.token,
+        model: "zeta-x1-lite",
+        return: ans.return,
         length: ans.length
       }
      );
