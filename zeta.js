@@ -23,6 +23,7 @@ function zeta (q) {
   raw = raw.filter(word => !["is","are","the"].includes(word));
 
   var keyword = raw[0] || "nothing";
+  keyword = keyword.replace(/[^a-zA-Z\s]/g, '');
   var catc = "";
 
   for (let i = 0; i < db.length; i++) {
