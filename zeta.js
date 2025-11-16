@@ -1,4 +1,13 @@
 function zeta (q) {
+    function processHTML(html) {
+      html = html.replace(/<head[\s\S]*?>[\s\S]*?<\/head>/gi, '');
+      html = html.replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, '');
+      html = html.replace(/<a\s+[^>]*>([\s\S]*?)<\/a>/gi,(_, text) => text.replace(/<[^>]*>/g, '').trim());
+      html = html.replace(/<(p|h[1-6]|label)[^>]*>([\s\S]*?)<\/\1>/gi,(_, tag, content) => content.replace(/<[^>]*>/g, '').trim() + "\n");
+      html = html.replace(/<[^>]*>/g, '');
+      return html.replace(/\n{2,}/g, '\n').trim();
+  }
+
   const db = [
     `Who am I? I'm a model trained by NeuralNexusLab and developed by NeuralNexusLab. I can use article to answer you or computation math.`,
     `Who are you? I don't know who are you but I know you are my best friend! I can explain what is AI to you, or computation math.`,
