@@ -1,5 +1,7 @@
 function zeta (q) {
   const db = [
+    `Who am I? I'm a model trained by NeuralNexusLab and developed by NeuralNexusLab. I can use article to answer you or computation math.`,
+    `Who are you? I don't know who are you but I know you are my best friend! I can explain what is AI to you, or computation math.`,
     `Artificial intelligence, or AI, is a technology that allows computers to learn, think, and make decisions like humans. Today, AI is used in many parts of our daily lives. It helps us find information online, recommends songs we might like, and even drives cars automatically.AI can understand language, recognize faces, and solve problems faster than people in some cases. However, AI still needs humans to guide it and make sure it is used safely. Many scientists believe that AI will continue to grow and improve, making our future smarter and more efficient. The key is to use it responsibly and for the benefit of everyone.`,
     `Developing AI systems requires a mix of math, programming, and creativity. Engineers begin by collecting data, which helps the AI learn patterns and make predictions. They then design a model, usually using machine-learning frameworks like TensorFlow or PyTorch. After training the model, developers test it to make sure it works correctly and safely.AI development is not only about making machines smart—it also involves careful decision-making. Developers must think about privacy, fairness, and how their technology will be used. Building AI responsibly ensures that it can help people while avoiding harmful effects. As the field grows, AI developers continue to create new tools that push technology forward and open the door to future innovations.`,
     `Cybersecurity is the practice of protecting computers, networks, and data from unauthorized access or attacks. In today’s digital world, people store a lot of personal information online, from bank accounts to social media. Hackers can try to steal this information or cause damage.To stay safe, organizations and individuals use strong passwords, firewalls, and encryption. Regular software updates and careful behavior online are also important. Cybersecurity is not just about technology—it is about awareness and responsibility. By following good practices, we can reduce risks and keep our digital world safe.`,
@@ -14,6 +16,25 @@ function zeta (q) {
   raw = raw.split(" ");
   var res = "";
   var token = 0;
+
+  function evalMath(input) {
+    const match = input.match(/[\d+\-*/()^\.]+/);
+    if (!match) return false;
+    let expr = match[0];
+    expr = expr.replace(/\^/g, "**");
+  
+    try {
+      if (!/^[\d+\-*/().\s*]+$/.test(expr)) return false;
+      const result = Function(`"use strict"; return (${expr});`)();
+      if (typeof result === "number" && isFinite(result)) {
+        return result;
+      }
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
+
   
   if (raw[0] == "do" || raw[0] == "what" || raw[0] == "who" || raw[0] == "which" || raw[0] == "where" || raw[0] == "when" || raw[0] == "was" || raw[0] == "were" || raw[0] == "is" || raw[0] == "are") {
     raw.splice(0, 1);
@@ -23,14 +44,24 @@ function zeta (q) {
   raw = raw.filter(word => !["is","are","the"].includes(word));
 
   var keyword = raw[0] || "nothing";
+  
+  if (keyword == "you" || keyword == "your") keyword = "i";
+  else {
+    if (keyword == "i" || keyword == "me") keyword = "you"
+  }
+  
   keyword = keyword.replace(/[^a-zA-Z\s]/g, '');
   var catc = "";
 
   for (let i = 0; i < db.length; i++) {
-    if (db[i].toLowerCase().includes(keyword)) {
+    if (db[i].toLowerCase().includes(keyword.toLowerCase())) {
       catc += db[i];
       token += db[i].length;
     }
+  }
+
+  if (evalMath(q) != false) {
+    catc += `"${q}", the computation's answer is ${evalMath(q)}.`;
   }
   
   res += q + ", about " + keyword + "...\n";
@@ -38,7 +69,7 @@ function zeta (q) {
   res += `${keyword}, a good discuss for us.`;
   token += 5;
 
-  return {token: token, model: "zeta-x1-lite", return: res};
+  return {token: token, model: "zeta-xf", return: res};
 }
 
 module.exports = zeta;
