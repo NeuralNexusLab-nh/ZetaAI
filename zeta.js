@@ -52,11 +52,27 @@ function zeta (q) {
   
   keyword = keyword.replace(/[^a-zA-Z\s]/g, '');
   var catc = "";
+  var isntAdd == true
+
+  if (q.toLowerCase().includes("web") || q.toLowerCase().includes("net")) {
+    var plhd = q.toLowerCase().split(" ");
+    var url;
+    for (let i = 0; i < raw.length; i++) {
+      if (plhd[i].startsWith("http://") || plhd[i].startsWith("https://")) {
+        url = plhd[i];
+      }
+    }
+    isntAdd = false;
+    fetch(`https://hackdev.nethacker.cloud/fetch?url=${url}`).then(res => res.text()).then((data) => {
+      catc += processHTML(data);
+    });
+  }
 
   for (let i = 0; i < db.length; i++) {
-    if (db[i].toLowerCase().includes(keyword.toLowerCase())) {
+    if (db[i].toLowerCase().includes(keyword.toLowerCase()) && isntAdd == true) {
       catc += db[i];
       token += db[i].length;
+      isntAdd = false;
     }
   }
 
