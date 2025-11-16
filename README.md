@@ -6,7 +6,7 @@ ZetaAI is an AI model trained by NeuralNexusLab.
 
 1. JavaScript (Browser & Node.js)
 ```javascript
-fetch("https://zeta.nethacker.cloud/api?prompt=hello")
+fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI")
   .then(res => res.json())
   .then((data) => {
     console.log(data.return)
@@ -15,7 +15,7 @@ fetch("https://zeta.nethacker.cloud/api?prompt=hello")
 
 2. CLI
 ```bash
-curl "https://zeta.nethacker.cloud/api?prompt=hello"
+curl "https://zeta.nethacker.cloud/api?prompt=What%20is%20AI"
 ```
 
 [Source Code](https://huggingface.co/NeuralNexusLab-Nh/ZetaAI)
