@@ -45,7 +45,7 @@ app.get("/api", (req, res) => {
     res.json(
       {
         tokens: ans.token,
-        model: "zeta-x1-lite",
+        model: "zeta-xf",
         return: ans.return,
         length: ans.length
       }
