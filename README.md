@@ -1,6 +1,26 @@
 # ZetaAI
 ZetaAI is an AI model trained by NeuralNexusLab.
 
+**Special Skills & How To Use**
+1. Explain things:
+```
+What is AI?
+```
+
+2. Talk:
+```
+Hi!
+```
+
+3. Explain by itself:
+```
+Who are you?
+```
+
+4. Computation math:
+```
+What the answer of 5*(2^16+357-210)-13/10*2^3?
+```
 
 **Calling API:**
 
