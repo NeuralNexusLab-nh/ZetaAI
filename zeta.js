@@ -41,7 +41,7 @@ function zeta (q) {
     token += 1;
   }
   
-  raw = raw.filter(word => !["is","are","the"].includes(word));
+  raw = raw.filter(word => !["is","are","the", "an", "a", "am"].includes(word));
 
   var keyword = raw[0] || "nothing";
   
