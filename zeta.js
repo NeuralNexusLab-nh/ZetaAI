@@ -32,7 +32,7 @@ function zeta (q) {
     }
   }
   
-  res += q + " About " + keyword + "...\n";
+  res += q + ", about " + keyword + "...\n";
   res += catc + "\n";
   res += `${keyword}, a good discuss for us.`;
   token += 5;
