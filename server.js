@@ -24,6 +24,22 @@ app.get("/source", (req, res) => {
   res.redirect("https://huggingface.co/NeuralNexusLab-Nh/ZetaAI");
 });
 
+app.get("/api", (req, res) => {
+  const prompt = req.query.prompt || "";
+  if (prompt == "") {
+    res.status(403).send("PROMPT REQUIRE");
+  } else {
+    const ans = zetahack(prompt);
+    res.json(
+      {
+        model: "zeta-hack",
+        return: ans,
+        length: ans.length
+      }
+     );
+  }
+});
+
 app.get("/api/zeta", (req, res) => {
   const prompt = req.query.prompt || "";
   if (prompt == "") {
@@ -50,7 +66,7 @@ app.get("/api/zetahack", (req, res) => {
     res.json(
       {
         model: "zeta-hack",
-        return: ans.return,
+        return: ans,
         length: ans.length
       }
      );
