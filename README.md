@@ -1,6 +1,15 @@
 # ZetaAI
 ZetaAI is an AI model trained by NeuralNexusLab.
 
+#Models
+1. Zeta:
+Zeta is a **chatBOT** 100% developed by NueralNexusLab. It's a base-rule program.
+API: https://zeta.nethacker.cloud/api/zeta?prompt=what%20is%20ai%3F
+
+2. ZetaHack:
+ZetaHack is a **AI** developed by NueralNexusLab (We give ideas to DeepSeek and we use program DeepSeek generate).
+API: https://zeta.nethacker.cloud/api?prompt=what%20is%20ai%3F
+
 **Special Skills & How To Use**
 1. Explain things:
 ```
@@ -17,7 +26,7 @@ Hi!
 Who are you?
 ```
 
-4. Computation math:
+4. Computation math (only zeta):
 ```
 What the answer of 5*(2^16+357-210)-13/10*2^3?
 ```
@@ -26,7 +35,7 @@ What the answer of 5*(2^16+357-210)-13/10*2^3?
 
 1. JavaScript
 ```javascript
-fetch("https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F")
+fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F")
   .then(res => res.json())
   .then((data) => {
     console.log(data.return)
@@ -35,14 +44,15 @@ fetch("https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F")
 
 2. URL
 ```
-https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F
+https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F
 ```
 
 3. CLI
 ```
-curl "https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F"
+curl "https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F"
 ```
 
-[Source Code](https://huggingface.co/NeuralNexusLab-Nh/Zeta)
+[Zeta's Source Code](https://huggingface.co/NeuralNexusLab-Nh/Zeta)
+[ZetaHack's Source Code](https://huggingface.co/NeuralNexusLab-Nh/ZetaHack)
 
 &copy; NeuralNexusLab Zeta Team
