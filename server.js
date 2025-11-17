@@ -46,7 +46,7 @@ app.get("/api/zetahack", (req, res) => {
   if (prompt == "") {
     res.status(403).send("PROMPT REQUIRE");
   } else {
-    const ans = zeta(prompt);
+    const ans = zetahack(prompt);
     res.json(
       {
         model: "zeta-hack",
