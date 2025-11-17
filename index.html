@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Zeta AI</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #000000, #ffffff);
+        color: #00ff66;
+        text-shadow: 0 0 4px #00ff66;
+        text-align: center;
+        opacity: 0;
+        animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-top: 80px;
+        font-weight: 800;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: slideUp 1s ease forwards 0.4s;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        background-color: #00ff66;
+        margin-left: 5px;
+        animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        margin: 20px auto;
+        line-height: 1.6;
+        opacity: 0;
+        animation: fadeInText 1s ease forwards 1s;
+    }
+
+    @keyframes fadeInText {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .btn-container {
+        margin-top: 40px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 28px;
+        font-size: 1rem;
+        color: #00ff66;
+        border: 2px solid #00ff66;
+        background-color: #000000;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: 0.3s;
+        text-shadow: 0 0 4px #00ff66;
+        opacity: 0;
+        transform: translateY(20px);
+        /* 每個按鈕延遲依序播放 */
+        animation: buttonPop 0.7s ease forwards;
+    }
+
+    .btn:nth-child(1) { animation-delay: 1.2s; }
+    .btn:nth-child(2) { animation-delay: 1.4s; }
+    .btn:nth-child(3) { animation-delay: 1.6s; }
+
+    @keyframes buttonPop {
+        from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .btn:hover {
+        border-color: #66d9ff;
+        color: #66d9ff;
+        text-shadow: 0 0 6px #66d9ff;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Zeta AI<span class="cursor"></span></h1>
+
+<p>
+    Zeta AI is a next-generation model developed by NeuralNexusLab. 
+    It is capable of analyzing complex text, providing clear explanations, 
+    and performing advanced reasoning tasks, including mathematical thinking.
+</p>
+
+<div class="btn-container">
+    <a class="btn" href="https://nethacker.cloud/models/zeta" target="_blank">Playground</a>
+    <a class="btn" href="https://github.com/NeuralNexusLab-nh/ZetaAI" target="_blank">Github API Document</a>
+    <a class="btn" href="https://huggingface.co/NeuralNexusLab-Nh/Zeta" target="_blank">Source Code on Hugging Face</a>
+</div>
+
+</body>
+</html>
