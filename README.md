@@ -3,12 +3,18 @@ ZetaAI is an AI model trained by NeuralNexusLab.
 
 #Models
 1. Zeta:
-Zeta is a **chatBOT** 100% developed by NueralNexusLab. It's a base-rule program.
-API: https://zeta.nethacker.cloud/api/zeta?prompt=what%20is%20ai%3F
+    Zeta is a **chatBOT** 100% developed by NueralNexusLab. It's a base-rule program.
 
-2. ZetaHack:
-ZetaHack is a **AI** developed by NueralNexusLab (We give ideas to DeepSeek and we use program DeepSeek generate).
-API: https://zeta.nethacker.cloud/api?prompt=what%20is%20ai%3F
+    API: https://zeta.nethacker.cloud/api/zeta?prompt=what%20is%20ai%3F
+
+    Playground: https://nethacker.cloud/models/zeta
+
+3. ZetaHack:
+    ZetaHack is a **AI** developed by NueralNexusLab (We give ideas to DeepSeek and we use program DeepSeek generate).
+
+    API: https://zeta.nethacker.cloud/api?prompt=what%20is%20ai%3F
+
+    Playground: https://nethacker.cloud/models/zetahack
 
 **Special Skills & How To Use**
 1. Explain things:
