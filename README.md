@@ -61,7 +61,6 @@ https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F
 curl "https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F"
 ```
 
-[Zeta's Source Code](https://huggingface.co/NeuralNexusLab-Nh/Zeta)
-[ZetaHack's Source Code](https://huggingface.co/NeuralNexusLab-Nh/ZetaHack)
+[Source Code](https://huggingface.co/NeuralNexusLab-Nh/Zeta)
 
 &copy; NeuralNexusLab Zeta Team
