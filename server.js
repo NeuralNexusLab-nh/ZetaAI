@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const zeta = require("./zeta.js");
+const zetahack = require("./zetahack.js");
 
 app.use((req, res, next) => {
   if (req.headers["user-agent"]) {
@@ -23,7 +24,7 @@ app.get("/source", (req, res) => {
   res.redirect("https://huggingface.co/NeuralNexusLab-Nh/ZetaAI");
 });
 
-app.get("/api", (req, res) => {
+app.get("/api/zeta", (req, res) => {
   const prompt = req.query.prompt || "";
   if (prompt == "") {
     res.status(403).send("PROMPT REQUIRE");
@@ -33,6 +34,22 @@ app.get("/api", (req, res) => {
       {
         tokens: ans.token,
         model: "zeta-xf",
+        return: ans.return,
+        length: ans.length
+      }
+     );
+  }
+});
+
+app.get("/api/zetahack", (req, res) => {
+  const prompt = req.query.prompt || "";
+  if (prompt == "") {
+    res.status(403).send("PROMPT REQUIRE");
+  } else {
+    const ans = zeta(prompt);
+    res.json(
+      {
+        model: "zeta-hack",
         return: ans.return,
         length: ans.length
       }
