@@ -1,4 +1,4 @@
-function zeta(input) {
+function zetahack(input) {
     const keyDB = {
         'ai': ['ai', 'artificial', 'intelligence', 'neural', 'network', 'machine', 'learning', 
                'deep', 'algorithm', 'model', 'training', 'chatbot', 'llm', 'transformer', 'gpt',
@@ -402,3 +402,5 @@ function zeta(input) {
     
     return opening + dynamicArticle + closing;
 }
+
+module.exports = zetahack;
