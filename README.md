@@ -26,7 +26,7 @@ What the answer of 5*(2^16+357-210)-13/10*2^3?
 
 1. JavaScript
 ```javascript
-fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F")
+fetch("https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F")
   .then(res => res.json())
   .then((data) => {
     console.log(data.return)
@@ -35,12 +35,12 @@ fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F")
 
 2. URL
 ```
-https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F
+https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F
 ```
 
 3. CLI
 ```
-curl "https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F"
+curl "https://zeta.nethacker.cloud/api/zetahack?prompt=What%20is%20AI%3F"
 ```
 
 [Source Code](https://huggingface.co/NeuralNexusLab-Nh/Zeta)
