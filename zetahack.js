@@ -96,7 +96,7 @@ function zeta(q) {
     "ZetaHack interpretation: "
   ];
 
-  return styles[Math.floor(Math.random() * styles.length)] + summarize(top);
+  return {return: styles[Math.floor(Math.random() * styles.length)] + summarize(top)};
 }
 
 module.exports = zeta;
