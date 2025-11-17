@@ -16,20 +16,7 @@ app.use(express.json());
 app.set("trust proxy", true);
 
 app.get("/", (req, res) => {
-  res.send(`
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <title>Zeta AI</title>
-  </head>
-  <body>
-  <h1>Zeta AI</h1><br>
-  <a href="https://github.com/NeuralNexusLab-nh/ZetaAI/">Github Documents</a><br>
-  <a href="https://huggingface.co/NeuralNexusLab-Nh/Zeta">Source Code</a><br>
-  <a href="https://nethacker.cloud/models/zeta">Playground</a>
-  </body>
-  </html>
-  `);
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/source", (req, res) => {
