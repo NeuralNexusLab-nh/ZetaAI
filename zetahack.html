@@ -103,7 +103,7 @@
     const CHAT_KEY = "ZetaHack-chatLog";
     let chatHistory = JSON.parse(localStorage.getItem(CHAT_KEY)) || [];
 
-    printMessage("System Booted...\nConnected to Zeta Hack (NeuralNexusLab)", "ai");
+    printMessage("System Booted...\nConnected to Zeta Hack (NeuralNexusLab & DeepSeek)", "ai");
     chatHistory.forEach(msg => printMessage(msg.text, msg.role));
 
     function saveChat(role, text) {
@@ -175,7 +175,7 @@
       localStorage.removeItem(CHAT_KEY);
       chatHistory = [];
       terminal.innerHTML = "";
-      printMessage("System Booted...\nConnected to Zeta Hack (NeuralNexusLab)", "ai");
+      printMessage("System Booted...\nConnected to Zeta Hack (NeuralNexusLab & DeepSeek)", "ai");
     });
   </script>
 </body>
