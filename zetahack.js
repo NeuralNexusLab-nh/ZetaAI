@@ -64,28 +64,24 @@ function zetahack(input) {
     ];
 
     function detectIntent(text) {
-    const lowerText = text.toLowerCase();
-    if (isEmotional(lowerText)) return 'emotional_support';
-    for (const [category, keywords] of Object.entries(keyDB)) {
-        if (keywords.some(keyword => lowerText.includes(keyword))) {
-
-            if (category === 'math' && hasMathOperation(lowerText)) {
-                return 'math_calculation';
-            }
-
-            if (category === 'emotion') {
-                return 'emotional_support';
-            }
-
-            return category;
-        }
+      const lowerText = text.toLowerCase();
+      if (isEmotional(lowerText)) return 'emotional_support';
+      for (const [category, keywords] of Object.entries(keyDB)) {
+          if (keywords.some(keyword => lowerText.includes(keyword))) {
+              if (category === 'math' && hasMathOperation(lowerText)) {
+                  return 'math_calculation';
+              }
+              if (category === 'emotion') {
+                  return 'emotional_support';
+              }
+              return category;
+          }
+      }
+      if (isGreeting(lowerText)) return 'greeting';
+      if (isIdentityQuery(lowerText)) return 'identity';
+  
+      return 'general';
     }
-
-    if (isGreeting(lowerText)) return 'greeting';
-    if (isIdentityQuery(lowerText)) return 'identity';
-
-    return 'general';
-}
 
 
     function hasMathOperation(text) {
