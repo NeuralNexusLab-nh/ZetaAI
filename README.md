@@ -11,13 +11,18 @@ ZetaAI is an AI model trained by NeuralNexusLab.
 
     Playground: https://nethacker.cloud/models/zeta
 
-2. ZetaHack:
+    Source Code: https://huggingface.co/NeuralNexusLab-Nh/Zeta/blob/main/index.js
+
+3. ZetaHack:
    
-    ZetaHack is a **AI** developed by NueralNexusLab (We give ideas to DeepSeek and we use program DeepSeek generate).
+    ZetaHack is a **AI** developed by NueralNexusLab & DeepSeek.
+    It is GPT, MoE, RNN, RAG model.
 
     API: https://zeta.nethacker.cloud/api?prompt=what%20is%20ai%3F
 
     Playground: https://nethacker.cloud/models/zetahack
+
+    Source Code: https://huggingface.co/NeuralNexusLab-Nh/Zeta/blob/main/zetahack.js
 
 **Special Skills & How To Use**
 1. Explain things:
