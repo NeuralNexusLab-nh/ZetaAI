@@ -64,24 +64,29 @@ function zetahack(input) {
     ];
 
     function detectIntent(text) {
-        const lowerText = text.toLowerCase();
-        const words = lowerText.split(/\s+/);
-        
-        for (const [category, keywords] of Object.entries(keyDB)) {
-            if (keywords.some(keyword => lowerText.includes(keyword))) {
-                if (category === 'math' && hasMathOperation(lowerText)) {
-                    return 'math_calculation';
-                }
-                return category;
+    const lowerText = text.toLowerCase();
+    if (isEmotional(lowerText)) return 'emotional_support';
+    for (const [category, keywords] of Object.entries(keyDB)) {
+        if (keywords.some(keyword => lowerText.includes(keyword))) {
+
+            if (category === 'math' && hasMathOperation(lowerText)) {
+                return 'math_calculation';
             }
+
+            if (category === 'emotion') {
+                return 'emotional_support';
+            }
+
+            return category;
         }
-        
-        if (isEmotional(lowerText)) return 'emotional_support';
-        if (isGreeting(lowerText)) return 'greeting';
-        if (isIdentityQuery(lowerText)) return 'identity';
-        
-        return 'general';
     }
+
+    if (isGreeting(lowerText)) return 'greeting';
+    if (isIdentityQuery(lowerText)) return 'identity';
+
+    return 'general';
+}
+
 
     function hasMathOperation(text) {
         const mathWords = [...mathExpressions.add, ...mathExpressions.subtract, ...mathExpressions.multiply, ...mathExpressions.divide];
@@ -89,9 +94,10 @@ function zetahack(input) {
     }
 
     function isEmotional(text) {
-        const emotionalWords = keyDB.emotion;
-        return emotionalWords.some(word => text.includes(word));
-    }
+    const emotionalWords = ['sad', 'happy', 'angry', 'excited', 'depressed', 'anxious', 'worried', 'stressed', 'tired', 'exhausted', 'feel', 'feeling', 'emotion'];
+    return emotionalWords.some(word => text.includes(word));
+}
+
 
     function isGreeting(text) {
         const greetings = keyDB.greeting;
