@@ -20,6 +20,14 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+app.get("/zeta", (req, res) => {
+  res.sendFile(path.join(__dirname, "zeta.html"));
+});
+
+app.get("/zetahack", (req, res) => {
+  res.sendFile(path.join(__dirname, "zetahack.html"));
+});
+
 app.get("/source", (req, res) => {
   res.redirect("https://huggingface.co/NeuralNexusLab-Nh/ZetaAI");
 });
