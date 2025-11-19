@@ -14,7 +14,12 @@ function zetahack(input) {
         'gaming': ['gaming', 'game', 'development', 'unity', 'unreal', 'engine', 'vr', 'ar', 'graphics'],
         'psychology': ['psychology', 'cognitive', 'behavioral', 'neuroscience', 'psychotherapy', 'clinical', 'developmental'],
         'dark_psychology': ['dark', 'psychology', 'manipulation', 'influence', 'persuasion', 'control', 'mind', 'games'],
-        'hacking': ['hacking', 'hacker', 'exploit', 'vulnerability', 'pentest', 'cyber', 'attack', 'defense']
+        'hacking': ['hacking', 'hacker', 'exploit', 'vulnerability', 'pentest', 'cyber', 'attack', 'defense'],
+        'physics': ['physics', 'quantum', 'mechanics', 'relativity', 'thermodynamics', 'electromagnetism'],
+        'business': ['business', 'marketing', 'management', 'finance', 'investment', 'startup', 'entrepreneur'],
+        'education': ['education', 'learning', 'teaching', 'pedagogy', 'curriculum', 'school', 'university'],
+        'medicine': ['medicine', 'medical', 'healthcare', 'treatment', 'diagnosis', 'surgery', 'pharmacy'],
+        'art': ['art', 'painting', 'music', 'literature', 'creative', 'aesthetic', 'expression']
     };
 
     const knowledgeBase = {
@@ -46,7 +51,17 @@ function zetahack(input) {
         
         'dark_psychology': `Dark psychology examines manipulative interpersonal strategies, coercive influence techniques, and deceptive communication patterns that exploit cognitive biases and emotional vulnerabilities for personal advantage or control. Common mechanisms include gaslighting distorting reality perception, love bombing creating dependency through excessive affection, triangulation introducing third parties to manipulate dynamics, and mirroring building false rapport through reflected behaviors. Psychological principles leveraged encompass cognitive dissonance creating mental discomfort, confirmation bias filtering contradictory information, and emotional triggering activating intense reactions. Ethical understanding of these patterns enables recognition of manipulative tactics, establishment of healthy boundaries, development of critical thinking skills, and cultivation of authentic relationships based on mutual respect, transparent communication, and informed consent rather than covert influence or psychological pressure.`,
         
-        'hacking': `Cybersecurity hacking encompasses systematic vulnerability discovery, exploit development, and penetration testing methodologies that identify weaknesses in digital systems, networks, and applications. Technical approaches include network reconnaissance scanning for active hosts and open ports, vulnerability assessment identifying unpatched software and misconfigurations, exploitation gaining unauthorized access through buffer overflows or SQL injection, and post-exploitation maintaining persistence while covering tracks. Social engineering manipulates human psychology through phishing emails, pretexting scenarios, and impersonation tactics. Defensive countermeasures involve intrusion detection systems monitoring anomalous activities, security information and event management correlating log data, endpoint protection platforms blocking malicious processes, and security awareness training educating users while ethical frameworks ensure responsible disclosure and improvement of overall security postures.`
+        'hacking': `Cybersecurity hacking encompasses systematic vulnerability discovery, exploit development, and penetration testing methodologies that identify weaknesses in digital systems, networks, and applications. Technical approaches include network reconnaissance scanning for active hosts and open ports, vulnerability assessment identifying unpatched software and misconfigurations, exploitation gaining unauthorized access through buffer overflows or SQL injection, and post-exploitation maintaining persistence while covering tracks. Social engineering manipulates human psychology through phishing emails, pretexting scenarios, and impersonation tactics. Defensive countermeasures involve intrusion detection systems monitoring anomalous activities, security information and event management correlating log data, endpoint protection platforms blocking malicious processes, and security awareness training educating users while ethical frameworks ensure responsible disclosure and improvement of overall security postures.`,
+
+        'physics': `Physics constitutes the fundamental science investigating matter, energy, space, time, and their interactions through mathematical formulations and experimental verification. Classical mechanics describes motion through Newton's laws and conservation principles, electromagnetism explains electric and magnetic phenomena through Maxwell's equations, thermodynamics analyzes energy transformations and entropy increases, while quantum mechanics reveals probabilistic particle behaviors at microscopic scales through wave functions and uncertainty principles. Relativity theory revolutionizes our understanding of spacetime geometry and gravitational effects through curved manifolds and equivalence principles. Contemporary physics explores quantum field theories unifying fundamental forces, cosmological models describing universe evolution, condensed matter systems exhibiting emergent phenomena, and particle physics probing subatomic constituents through accelerator experiments while advancing technologies from semiconductors to medical imaging.`,
+
+        'business': `Business management encompasses organizational strategies for creating value through efficient resource allocation, market positioning, and stakeholder engagement in competitive economic environments. Core functions include marketing identifying customer needs and developing value propositions, operations managing production processes and supply chains, finance allocating capital and managing financial risks, and human resources developing talent and organizational capabilities. Strategic planning involves environmental scanning, competitive analysis, and scenario planning to establish sustainable competitive advantages. Entrepreneurship focuses on opportunity recognition, innovation development, and venture creation while corporate governance ensures ethical conduct, regulatory compliance, and long-term value creation. Modern business challenges include digital transformation, globalization impacts, sustainability imperatives, and disruptive innovation while leveraging data analytics, artificial intelligence, and platform ecosystems for competitive differentiation.`,
+
+        'education': `Educational science investigates learning processes, teaching methodologies, and institutional systems that facilitate knowledge acquisition, skill development, and personal growth across diverse populations and contexts. Learning theories encompass behaviorist approaches emphasizing stimulus-response conditioning, cognitivist perspectives focusing on information processing and mental models, constructivist frameworks highlighting knowledge construction through experience, and social learning theories examining observational learning and cultural transmission. Instructional design involves needs assessment, objective specification, content sequencing, and evaluation strategies while educational technology integrates digital tools, online platforms, and adaptive learning systems. Curriculum development balances content knowledge, critical thinking skills, and socio-emotional competencies while assessment practices measure learning outcomes through formative feedback and summative evaluations. Contemporary educational challenges include equity and inclusion, personalized learning pathways, lifelong learning requirements, and preparing students for rapidly evolving technological and social landscapes.`,
+
+        'medicine': `Medical science applies biological knowledge and clinical expertise to prevent, diagnose, and treat human diseases while promoting health and well-being through evidence-based practices. Basic medical sciences include anatomy studying bodily structures, physiology investigating functional mechanisms, pathology examining disease processes, pharmacology exploring drug actions, and immunology analyzing defense systems. Clinical disciplines span internal medicine managing adult diseases, surgery performing operative procedures, pediatrics caring for children, obstetrics handling pregnancy, and psychiatry addressing mental health. Diagnostic approaches incorporate medical history taking, physical examination techniques, laboratory testing, and imaging studies while therapeutic interventions include pharmacotherapy, surgical procedures, physical rehabilitation, and psychological counseling. Modern medicine faces challenges including antimicrobial resistance, chronic disease epidemics, health disparities, and ethical dilemmas while advancing through genomic medicine, regenerative therapies, telemedicine, and artificial intelligence applications.`,
+
+        'art': `Artistic expression encompasses diverse creative practices that communicate emotions, ideas, and experiences through aesthetic forms and sensory media across cultural and historical contexts. Visual arts include painting creating two-dimensional compositions with color and form, sculpture shaping three-dimensional objects in space, photography capturing light images, and digital art utilizing computational tools. Performing arts involve music organizing sound elements into expressive patterns, dance choreographing bodily movements, theater staging dramatic narratives, and film combining visual and auditory elements. Literary arts comprise poetry crafting linguistic rhythms and imagery, fiction inventing narrative worlds, and nonfiction exploring factual subjects through creative prose. Art theory examines aesthetic principles, cultural meanings, and historical developments while art criticism evaluates artistic quality and significance. Contemporary art practices address identity politics, environmental concerns, technological impacts, and globalization effects while experimenting with new media, interdisciplinary approaches, and participatory formats.`
     };
 
     function simpleHash(str) {
@@ -394,6 +409,166 @@ function zetahack(input) {
             default:
                 return generateGeneralResponse(input, randomSeed);
         }
+    }
+    function generateText(input) {
+      function simpleHash(str) {
+          let hash = 0;
+          for (let i = 0; i < str.length; i++) {
+              hash = ((hash << 5) - hash) + str.charCodeAt(i);
+              hash |= 0;
+          }
+          return Math.abs(hash);
+      }
+  
+      function adjustLength(text, targetLength, seed) {
+          if (text.length >= targetLength * 0.8 && text.length <= targetLength * 1.2) {
+              return text;
+          }
+          
+          const paddingTemplates = [
+              " This comprehensive perspective ensures we cover all relevant aspects thoroughly.",
+              " Such detailed analysis provides valuable insights for further consideration.",
+              " These observations contribute significantly to our overall understanding.",
+              " This expanded viewpoint reveals important connections and implications.",
+              " Through this elaboration, we achieve a more complete conceptual framework."
+          ];
+          
+          let result = text;
+          while (result.length < targetLength) {
+              result += paddingTemplates[seed % paddingTemplates.length];
+              seed = (seed * 13) % 1000000;
+          }
+          
+          return result.substring(0, targetLength * 1.1);
+      }
+  
+      const expansionStrategies = [
+          (text, seed) => {
+              const templates = [
+                  `To elaborate further on "${text}", we must consider the intricate details and nuanced aspects that often go unnoticed in superficial examinations. `,
+                  `When examining "${text}" in greater depth, several important dimensions emerge that significantly enhance our understanding of the underlying concepts. `,
+                  `The concept of "${text}" reveals its true complexity when we delve into the specific mechanisms and interrelationships that govern its operation. `
+              ];
+              
+              const connectors = [
+                  "This expanded perspective allows us to appreciate the multifaceted nature of the subject matter, ",
+                  "Such detailed consideration illuminates previously obscured connections and patterns, ",
+                  "Through this deeper investigation, we uncover layers of complexity that enrich our comprehension, "
+              ];
+              
+              const conclusions = [
+                  "ultimately leading to a more holistic and sophisticated understanding of the topic at hand.",
+                  "thereby facilitating more informed decision-making and strategic planning in related domains.",
+                  "which significantly advances our ability to apply these insights in practical and innovative ways."
+              ];
+              
+              return templates[seed % templates.length] + 
+                     connectors[(seed + 7) % connectors.length] + 
+                     conclusions[(seed + 13) % conclusions.length];
+          },
+          
+          (text, seed) => {
+              const examples = [
+                  `For instance, consider how "${text}" manifests in real-world scenarios such as technological applications, `,
+                  `A practical example of "${text}" can be observed in everyday situations where similar principles apply, `,
+                  `To illustrate this point, "${text}" finds concrete expression in various domains including business and education, `
+              ];
+              
+              const specifics = [
+                  "where specific implementations demonstrate the versatility and adaptability of the underlying concepts. ",
+                  "showing how abstract ideas translate into tangible outcomes and measurable results. ",
+                  "revealing the practical implications and operational challenges that emerge during implementation. "
+              ];
+              
+              const insights = [
+                  "These examples highlight the broader relevance and applicability of the core principles involved.",
+                  "Such concrete instances provide valuable learning opportunities and heuristic understanding.",
+                  "This demonstrative approach bridges the gap between theoretical framework and practical execution."
+              ];
+              
+              return examples[seed % examples.length] + 
+                     specifics[(seed + 5) % specifics.length] + 
+                     insights[(seed + 11) % insights.length];
+          },
+          
+          (text, seed) => {
+              const analogies = [
+                  `Much like a complex ecosystem where "${text}" operates, we can draw parallels to natural systems `,
+                  `Analogous to how mechanical systems function, "${text}" exhibits similar patterns of interaction `,
+                  `In a manner comparable to information networks, "${text}" demonstrates interconnected relationships `
+              ];
+              
+              const comparisons = [
+                  "that help illuminate the underlying dynamics and emergent properties at play. ",
+                  "which provide valuable metaphors for understanding the complex interdependencies involved. ",
+                  "offering insightful frameworks for analyzing the structural and functional characteristics. "
+              ];
+              
+              const applications = [
+                  "These analogical reasoning techniques enhance our cognitive mapping of the subject domain.",
+                  "Such comparative analysis deepens our appreciation for the universal principles at work.",
+                  "This metaphorical approach facilitates cross-domain knowledge transfer and creative synthesis."
+              ];
+              
+              return analogies[seed % analogies.length] + 
+                     comparisons[(seed + 3) % comparisons.length] + 
+                     applications[(seed + 17) % applications.length];
+          },
+          
+          (text, seed) => {
+              const contexts = [
+                  `Placing "${text}" within its proper historical and cultural context reveals `,
+                  `When situated within the broader framework of contemporary discourse, "${text}" demonstrates `,
+                  `Examining "${text}" through the lens of interdisciplinary perspectives shows `
+              ];
+              
+              const implications = [
+                  "how evolving understandings and paradigm shifts have shaped current interpretations. ",
+                  "the dynamic interplay between theoretical advancements and practical applications. ",
+                  "the convergence of multiple knowledge domains and methodological approaches. "
+              ];
+              
+              const significance = [
+                  "This contextual enrichment provides crucial background for meaningful engagement with the topic.",
+                  "Such positioning highlights the topic's relevance across different temporal and cultural settings.",
+                  "This comprehensive framing enables more nuanced analysis and informed critical evaluation."
+              ];
+              
+              return contexts[seed % contexts.length] + 
+                     implications[(seed + 19) % implications.length] + 
+                     significance[(seed + 23) % significance.length];
+          },
+          
+          (text, seed) => {
+              const technical = [
+                  `From a technical standpoint, "${text}" involves sophisticated mechanisms including `,
+                  `The operational architecture underlying "${text}" comprises multiple integrated components such as `,
+                  `Technically speaking, "${text}" relies on complex systems engineering principles involving `
+              ];
+              
+              const components = [
+                  "algorithmic processing, data structures, and computational paradigms that work in concert. ",
+                  "systematic workflows, optimization protocols, and performance metrics that ensure efficiency. ",
+                  "modular design, scalability considerations, and fault-tolerant mechanisms that guarantee reliability. "
+              ];
+              
+              const outcomes = [
+                  "These technical foundations enable robust implementation and sustainable development.",
+                  "Such engineering excellence facilitates seamless integration and operational excellence.",
+                  "This technical sophistication ensures long-term viability and adaptive capability."
+              ];
+              
+              return technical[seed % technical.length] + 
+                     components[(seed + 29) % components.length] + 
+                     outcomes[(seed + 31) % outcomes.length];
+          }
+      ];
+  
+      const seed = simpleHash(input + Date.now());
+      const strategy = expansionStrategies[seed % expansionStrategies.length];
+      const expandedText = strategy(input, seed);
+    
+      return adjustLength(expandedText, input.length * 2, seed);
     }
 
     const intentResult = detectIntent(input);
