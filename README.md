@@ -40,13 +40,25 @@ Hi!
 Who are you?
 ```
 
-4. Computation math (only zeta):
+4. Computation math:
 ```
 What the answer of 5*(2^16+357-210)-13/10*2^3?
 ```
 
 **Calling API:**
 
+Method: GET
+Address: ZetaHack: https://zeta.nethacker.cloud/api/zetahsck & Zeta: https:/zeta.nethacker.cloud/api/zeta
+Query Params (Require): ?prompt= 
+
+Return JSON:
+{
+  "model": "zeta-hack",
+  "return": "Hello!",
+  "length": 6
+}
+
+**Calling API Example:**
 1. JavaScript
 ```javascript
 fetch("https://zeta.nethacker.cloud/api?prompt=What%20is%20AI%3F")
