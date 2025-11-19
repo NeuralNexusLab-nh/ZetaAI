@@ -574,10 +574,10 @@ function zetahack(input) {
     const intentResult = detectIntent(input);
     
     if (typeof intentResult === 'object' && intentResult.type === 'knowledge') {
-        return generateDynamicResponse('knowledge', input, intentResult.topic);
+        return generateText(generateDynamicResponse('knowledge', input, intentResult.topic));
     }
     
-    return generateDynamicResponse(intentResult, input);
+    return generateText(generateDynamicResponse(intentResult, input));
 }
 
 module.exports = zetahack;
