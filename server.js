@@ -48,6 +48,16 @@ app.get("/api", (req, res) => {
   }
 });
 
+app.get("/v1", (req, res) => {
+  const prompt = req.query.prompt || "";
+  if (prompt == "") {
+    res.status(403).send("PROMPT REQUIRE");
+  } else {
+    const ans = zetahack(prompt);
+    res.send(ans);
+  }
+});
+
 app.get("/api/zeta", (req, res) => {
   const prompt = req.query.prompt || "";
   if (prompt == "") {
